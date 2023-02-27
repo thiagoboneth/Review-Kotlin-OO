@@ -1,29 +1,22 @@
-import model.Conta
+import model.Diretor
+import model.Gerente
+import servico.TestaContasDiferentes
 
-fun main(args: Array<String>) {
+
+fun main() {
 
     println("############################")
     println("###Bem vindo ao Byte-Bank###")
     println("############################")
 
-    val contaThiago = Conta("Thiago", 1010)
-    contaThiago.deposito(100.00)
+    val teste = TestaContasDiferentes().testaContas()
+    println(teste)
 
-    val contaLeticia = Conta("Leticia", 1111)
-    contaLeticia.deposito(100.00)
+    val gerente = Gerente("Thiago","123.456.789.89",1000.00,123456)
+    val diretor = Diretor("Luis","123.456.789-99",2000.00,123456,5000.00)
 
-
-    println("Titular da conta: ${contaThiago.titular}")
-    println("Número de conta: ${contaThiago.numeroConta}")
-    println("Saldo conta: ${contaThiago.statusSaldo()}")
-
-    contaThiago.deposito(500.00)
-    contaThiago.statusSaldo()
-    //contaThiago.saque(600.00)
-    contaThiago.transferir(600.00, contaLeticia)
-    contaLeticia.statusSaldo()
-    contaThiago.statusSaldo()
-
-    println("#############################")
+    val sistema = OSin()
+    sistema.entra(gerente,123456)
+    sistema.entra(diretor,12346)
 
 }

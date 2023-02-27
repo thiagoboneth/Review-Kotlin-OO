@@ -1,11 +1,11 @@
 package model
 
-class Conta constructor(
+abstract class Conta constructor(
     val titular: String,
     val numeroConta: Int
 ) {
     var saldo: Double = 0.0
-        private set
+        protected  set
 
 
     fun statusSaldo() {
@@ -25,12 +25,7 @@ class Conta constructor(
         }
     }
 
-    fun saque(valor: Double) {
-        if (this.saldo >= valor) {
-            this.saldo += valor
-            println("Saque no valor de $valor autorizado pela instituição")
-        }
-    }
+    abstract fun saque(valor: Double)
 
     fun transferir(valor: Double, contaDestino: Conta) {
         if (this.saldo >= valor) {
