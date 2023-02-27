@@ -16,4 +16,5 @@ class Diretor(
     override val bonificacao: Double get() {
         return salario + plr
     }
+
 }
